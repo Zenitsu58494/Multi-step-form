@@ -19,6 +19,7 @@ export function Card3({ onclick, Back }) {
               className="w-[410px] h-11 border-solid border-[#CBD5E1] border-[1px] rounded-md  pl-2"
               placeholder=""
             ></input>
+            <input type="file" id="img" name="img" accept="image/*" className="w-[410px] h-[200px] border-solid border-[#CBD5E1] border-[1px] rounded-md  pl-2"></input>
 
             <div className="flex justify-center  gap-3 mt-[40px]">
               <button
