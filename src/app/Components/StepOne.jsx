@@ -1,40 +1,22 @@
-"use client";
-import { useState } from "react";
-import { Input } from "./Input";
+import { IoIosArrowForward } from "react-icons/io";
 
-export function Card({ onclick }) {
-  const [inputValue, setInputValue] = useState(""); 
-  const [error, setError] = useState(""); 
-  const [borderColor, setBorderColor] = useState("focus:border-[#E14942]"); 
-
-
-  const inputChange = (e) => {
-    const value = e.target.value;
-    setInputValue(value);
-
-    if (value === "") {
-      setError("First name cannot be empty");
-      setBorderColor("border-[#E14942]");
-    } else if(!(value[0]>='A' && value[0]<='Z')){
-      setError("First name must be start with uppercase")
-    } else if(checkNumber(value)) {
-
-      setError("First name can not contain number")
+export function Card({
+  onclick,
+  inputValue,
+  firstName,
+  lastName,
+  userName,
+  borderColor,
+  borderColor2,
+  borderColor3,
+  inputChange,
+}) {
+  const Validate = () => {
+    if (lastName === " " && firstName === " " && userName === " ") {
+      return false;
     }
-    else {
-      setError(""); 
-      setBorderColor("border-[#CBD5E1]");
-    }
+    return true;
   };
-  const checkNumber=(string)=>{
-    for(let i=0;i<string.length;i++){
-      if(string[i]>=0 && string[i]<=9){
-        return true
-      }
-    }
-    return false
-  }
-
   return (
     <div className="w-[480px] h-[655px] bg-white rounded-[8px]">
       <div className="ml-[30px] mt-[30px]">
@@ -47,38 +29,49 @@ export function Card({ onclick }) {
         </div>
 
         <div>
-      
-          <Input inputChange={inputChange}
-          inputValue={inputValue}
-          borderColor={borderColor}
-         error={error}
+          <p className="text-[14px] text-[#334155] w-[100px] h-7 mt-8 font-bold">
+            First name *
+          </p>
+          <input
+            onChange={inputChange}
+            value={inputValue}
+            className={`w-[410px] h-11 border-[#CBD5E1] outline-none ${borderColor} border-[1px] border-solid rounded-md pl-2`}
+            placeholder="First name"
+            id="firstName"
           />
+          <p className="text-[#E14942] text-[14px]">{firstName}</p>
 
-          
-<p className="text-[14px] text-[#334155] w-[100px] h-7 mt-6 font-bold">
+          <p className="text-[14px] text-[#334155] w-[100px] h-7 mt-6 font-bold">
             Last name *
           </p>
           <input
-            className="w-[410px] h-11 border-[#CBD5E1] border-[1px] border-solid rounded-md pl-2"
+            className={`w-[410px] h-11 border-[#CBD5E1] outline-none ${borderColor2} border-[1px] border-solid rounded-md pl-2`}
             placeholder="Last name"
+            onChange={inputChange}
+            value={inputValue}
+            id="lastName"
           />
+          <p className="text-[#E14942] text-[14px]">{lastName}</p>
 
-        
           <p className="text-[14px] text-[#334155] w-[100px] h-7 mt-6 font-bold">
             Username *
           </p>
           <input
-            className="w-[410px] h-11 border-[#CBD5E1] border-[1px] border-solid rounded-md pl-2"
+            className={`w-[410px] h-11 border-[#CBD5E1] outline-none ${borderColor3} border-[1px] border-solid rounded-md pl-2`}
             placeholder="Username"
-          
+            onChange={inputChange}
+            value={inputValue}
+            id="userName"
           />
+          <p className="text-[#E14942] text-[14px]">{userName}</p>
 
-        
           <button
-            className="w-[410px] h-11 bg-[#D6D8DB] flex justify-center items-center rounded-md mt-[120px]"
+            className="w-[410px] h-11 bg-[#D6D8DB] flex justify-center gap-2 items-center rounded-md mt-[120px]"
             onClick={onclick}
+            disabled={Validate()}
           >
             Continue 1/3
+            <IoIosArrowForward className="w-[18px] h-[18px]" />
           </button>
         </div>
       </div>
