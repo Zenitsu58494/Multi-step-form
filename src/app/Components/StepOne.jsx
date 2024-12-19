@@ -10,6 +10,7 @@ export function Card({
   borderColor2,
   borderColor3,
   inputChange,
+  buttonColor,
 }) {
   const Validate = () => {
     if (lastName === " " && firstName === " " && userName === " ") {
@@ -66,7 +67,7 @@ export function Card({
           <p className="text-[#E14942] text-[14px]">{userName}</p>
 
           <button
-            className="w-[410px] h-11 bg-[#D6D8DB] flex justify-center gap-2 items-center rounded-md mt-[120px]"
+            className={`w-[410px] h-11 ${buttonColor} flex justify-center gap-2 items-center rounded-md mt-[120px]`}
             onClick={onclick}
             disabled={Validate()}
           >

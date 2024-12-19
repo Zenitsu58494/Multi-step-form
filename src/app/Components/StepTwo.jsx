@@ -13,6 +13,7 @@ export function Card2({
   bordercolor5,
   bordercolor6,
   bordercolor7,
+  secondButtonColor,
 }) {
   const Validate = () => {
     if (
@@ -98,7 +99,7 @@ export function Card2({
                 </button>
                 <button
                   type="Submit"
-                  className="w-[280px] h-11 bg-[#D6D8DB] gap-2 flex justify-center items-center rounded-md "
+                  className={`w-[280px] h-11 ${secondButtonColor} gap-2 flex justify-center items-center rounded-md`}
                   onClick={onclick}
                   disabled={Validate()}
                 >
