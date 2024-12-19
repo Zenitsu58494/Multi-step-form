@@ -8,7 +8,7 @@ import { Card4 } from "./Components/StepFour";
 import { useEffect } from "react";
 
 export default function Home() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
 
   const [inputValue, setInputValue] = useState({
     firstName: "",
@@ -51,7 +51,7 @@ export default function Home() {
     if (hasErrors) {
       setButtonColor("bg-[#D6D8DB]");
     } else {
-      setButtonColor("bg-[#202124]");
+      setButtonColor("bg-[#202124] text-white");
     }
   }, [error]);
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function Home() {
     if (hasErrors) {
       setSecondButtonColor("bg-[#D6D8DB]");
     } else {
-      setSecondButtonColor("bg-[#202124]");
+      setSecondButtonColor("bg-[#202124] text-white");
     }
   }, [error]);
 
@@ -126,18 +126,18 @@ export default function Home() {
     } else if (e.target.value === "" && inputId === "number") {
       setError({ ...error, [inputId]: "phone number cannot be empty" });
       setBorderColor5("border-[#E14942]");
-    } else if (e.target.value[0] === "" && inputId === "number") {
-      setError({
-        ...error,
-        [inputId]: "phone number must be more than 8 digits",
-      });
-      setBorderColor5("border-[#E14942]");
     } else if (
       e.target.value[0] >= 0 &&
       e.target.value[0] <= 6 &&
       inputId === "number"
     ) {
       setError({ ...error, [inputId]: "wrong number" });
+      setBorderColor5("border-[#E14942]");
+    } else if (e.target.value.length !== 8 && inputId === "number") {
+      setError({
+        ...error,
+        [inputId]: "phone number must be only 8 digits",
+      });
       setBorderColor5("border-[#E14942]");
     } else if (!checkNumber(e.target.value) && inputId === "number") {
       setError({ ...error, [inputId]: "you must write only number" });

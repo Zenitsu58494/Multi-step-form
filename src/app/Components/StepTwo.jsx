@@ -28,9 +28,9 @@ export function Card2({
   };
   return (
     <>
-      <div className="w-[480px] h-[655px] bg-white rounded-[8px]">
+      <div className="w-full max-w-[480px] bg-white rounded-[8px]">
         <div className="ml-[30px] mt-[30px]">
-          <div className="w-[400px]  ">
+          <div className="w-full  ">
             <img src="/Main2.png" width={60} height={60}></img>
             <h2 className="text-[26px] font-bold w-[150px]">Join Us! 😎</h2>
             <p className="text-[#8E8E8E] text-[18px]">
@@ -39,7 +39,7 @@ export function Card2({
           </div>
           <div>
             <form action={"/action_page.php"}>
-              <p className="size-[14px] text-[#334155] w-[100px] h-7 mt-8 font-bold">
+              <p className="size-[14px] text-[#334155 mt-8 font-bold">
                 Email *
               </p>
               <input
@@ -47,44 +47,44 @@ export function Card2({
                 onChange={inputChange}
                 name="emails"
                 type="email"
-                className={`w-[410px] h-11 border-solid outline-none ${bordercolor4}  border-[1px] rounded-md  pl-2`}
+                className={`w-full h-11 border-solid outline-none ${bordercolor4}  border-[1px] rounded-md mt-3 pl-2`}
                 placeholder="Email"
               ></input>
               <br></br>
               <p className="text-[#E14942] text-[14px]">{email}</p>
-              <p className="size-[14px] text-[#334155] w-[100px] h-7 mt-6 font-bold">
+              <p className="size-[14px] text-[#334155] mt-6 font-bold">
                 Phone Number *
               </p>
               <input
                 type="tel"
                 onChange={inputChange}
                 id="number"
-                className={`w-[410px] h-11 border-solid outline-none ${bordercolor5}  border-[1px] rounded-md  pl-2`}
+                className={`w-full h-11 border-solid outline-none ${bordercolor5}  border-[1px] mt-3 rounded-md  pl-2`}
                 placeholder="Phone Number"
               ></input>
               <br></br>
               <p className="text-[#E14942] text-[14px]">{number}</p>
-              <p className="size-[14px] text-[#334155] w-[100px] h-7 mt-6 font-bold ">
+              <p className="size-[14px] text-[#334155]  mt-6 font-bold ">
                 Password *
               </p>
               <input
                 type="password"
                 onChange={inputChange}
                 id="password"
-                className={`w-[410px] h-11 border-solid outline-none ${bordercolor6}  border-[1px] rounded-md  pl-2`}
+                className={`w-full h-11 border-solid outline-none ${bordercolor6}  border-[1px] rounded-md mt-3  pl-2`}
                 placeholder="Password"
               ></input>
               <br></br>
               <p className="text-[#E14942] text-[14px]">{password}</p>
-              <p className="size-[14px] text-[#334155] w-[100px] h-7 mt-6 font-bold ">
+              <p className="size-[14px] text-[#334155] mt-3 font-bold ">
                 Confirm *
               </p>
               <input
                 type="password"
                 onChange={inputChange}
                 id="confirmPassword"
-                className={`w-[410px] h-11 border-solid 
-                 outline-none ${bordercolor7}  border-[1px] rounded-md  pl-2`}
+                className={`w-full h-11 border-solid 
+                 outline-none ${bordercolor7}  border-[1px] rounded-md mt-3  pl-2`}
                 placeholder="Repeat Your Password"
               ></input>
               <p className="text-[#E14942] text-[14px]">{confirmPassword}</p>
@@ -92,7 +92,7 @@ export function Card2({
               <div className="flex justify-center  gap-3 mt-[40px]">
                 <button
                   onClick={Back}
-                  className="w-[128px] h-11 bg-[#CBD5E1 gap-2 flex justify-center items-center border border-solid border-[#CBD5E1] rounded-lg "
+                  className="max-w-[128px] h-11 bg-[#CBD5E1 gap-2 flex justify-center items-center border border-solid border-[#CBD5E1] rounded-lg "
                 >
                   <IoIosArrowBack className="w-[18px] h-[18px]" />
                   Back

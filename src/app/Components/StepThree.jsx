@@ -1,7 +1,18 @@
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { useState } from "react";
 
 export function Card3({ onclick, Back }) {
+  const [selectedImage, setSelectedImage] = useState("");
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const objUrl = URL.createObjectURL(file);
+    setSelectedImage(objUrl);
+    console.log(selectedImage);
+  };
   return (
     <>
       <div className="w-[480px] h-[655px] bg-white rounded-[8px]">
@@ -22,13 +33,15 @@ export function Card3({ onclick, Back }) {
               className="w-[410px] h-11 border-solid border-[#CBD5E1] border-[1px] rounded-md  pl-2"
               placeholder=""
             ></input>
+
             <input
               type="file"
-              id="img"
-              name="img"
-              accept="image/*"
+              id="image"
+              name="image"
+              onChange={handleFileChange}
               className="w-[410px] h-[200px] border-solid border-[#CBD5E1] border-[1px] rounded-md  pl-2"
             ></input>
+            {selectedImage && <img src={selectedImage} alt="problem"></img>}
 
             <div className="flex justify-center  gap-3 mt-[40px]">
               <button
